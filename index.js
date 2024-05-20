@@ -16,14 +16,9 @@ const db = new pg.Client({
 
 db.connect();
 
-// Hardcoded array of objects to try
-let quiz = [
-  { country: "Argentina", capital: "Buenos Aires"},
-  { country: "Uruguay", capital: "Montevideo"},
-  { country: "Chile", capital: "Santiago de Chile"},
-];
+// We define an empty array and then we fill it with the query to the db
+let quiz = [];
 
-// Replace the 
 db.query("SELECT * FROM capitals", (err,res) => {
   if (err) {
     console.error("Error executing query", err.stack);
